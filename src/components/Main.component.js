@@ -111,7 +111,7 @@ const handleSearch = debounce((d) => {
   let value = d.toLowerCase();
   console.log(value);
   setSearchQuery(value);
-  if(value !==''){
+  if(value !==''){ 
     setFilteredData(data.filter(elem => elem[category].toString().toLowerCase().includes(value)))
   }
   else{
@@ -158,8 +158,7 @@ useEffect(() => {
         </select>
         <div className="search h-12 mr-4 mt-2 border-2 border-green-700 flex items-center justify-center rounded-sm">
         <SearchBar
-        searchQuery={searchQuery} setSearchQuery={setSearchQuery} onChange= {handleSearch}
-      />
+        searchQuery={searchQuery} setSearchQuery={setSearchQuery} />
         </div>
       </div>
 
