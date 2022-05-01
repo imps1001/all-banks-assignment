@@ -5,20 +5,19 @@ import CardActions from '@mui/material/CardActions';
 import CardContent from '@mui/material/CardContent';
 import Button from '@mui/material/Button';
 import Typography from '@mui/material/Typography';
-
 import '../css/styles.css';
 
  const Bank = ()=> {
      const location = useLocation()
-    const myparam = location.state;
+    const mydata = location.state;
   
     return (
      
-        <Card
+        <Card className="card"
           style={{
             width: 'auto',
             height:'auto',
-            backgroundColor: "whitesmoke"
+            backgroundColor: "gray",
           }}
         >
           <CardContent className="bank_card">
@@ -28,61 +27,58 @@ import '../css/styles.css';
               color="textSecondary"
               gutterBottom
             />
-             {myparam.bank_name}
+             {mydata.bank_name}
              <hr/>
              <span>Bank id :</span>
             <Typography
               style={{ fontSize: 14 }}
               color="textSecondary"
               gutterBottom
-            />{myparam.bank_id}
+            />{mydata.bank_id}
              <hr/>
              <span>Bank IFSC :</span>
             <Typography
               style={{ fontSize: 14 }}
               color="textSecondary"
               gutterBottom
-            />{myparam.ifsc}
+            />{mydata.ifsc}
              <hr/>
            <span>Bank Branch :</span>
             <Typography
-              style={{ fontSize: 14 }}
+              style={{ fontSize: 16 }}
               color="textSecondary"
               gutterBottom
-            />{myparam.branch}
+            />{mydata.branch}
              <hr/>
              <span>Bank City :</span>
             <Typography
-              style={{ fontSize: 14 }}
+              style={{ fontSize: 16 }}
               color="textSecondary"
               gutterBottom
-            />{myparam.city}
+            />{mydata.city}
              <hr/>
              <span>Bank District :</span>
             <Typography
-              style={{ fontSize: 14 }}
+              style={{ fontSize: 16 }}
               color="textSecondary"
               gutterBottom
-            />{myparam.district}
+            />{mydata.district}
              <hr/>
              <span>Bank State :</span>
             <Typography
-              style={{ fontSize: 14 }}
+              style={{ fontSize: 16 }}
               color="textSecondary"
               gutterBottom
-            />{myparam.state}
+            />{mydata.state}
              <hr/>
              <span>Bank Address :</span>
             <Typography
-              style={{ fontSize: 14 }}
+              style={{ fontSize: 16 }}
               color="textSecondary"
               gutterBottom
-            />{myparam.address}
+            />{mydata.address}
              <hr/>
           </CardContent>
-          <CardActions>
-            <Button size="small">Lets Groww</Button>
-          </CardActions>
         </Card>
  )}
 

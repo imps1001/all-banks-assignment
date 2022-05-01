@@ -19,7 +19,8 @@
 }
 
 .bank_card{
-  text-align: 'left';
+  text-align: 'center';
+  margin: 10px 30px 10px 40px;
 }
 .styled-table {
   border-collapse: collapse;
