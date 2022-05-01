@@ -4,7 +4,6 @@ import '../css/styles.css';
 import {useNavigate} from 'react-router-dom'
 import {BsHeart,BsHeartFill} from 'react-icons/bs';
 import Loading from '../components/Loading.component';
-import SearchBar from '../components/SearchBar';
 import imgSrc from '../assets/no-data-found.webp';
 const Main = () => {
 
@@ -157,8 +156,7 @@ useEffect(() => {
           <option value="district">District</option>
         </select>
         <div className="search h-12 mr-4 mt-2 border-2 border-green-700 flex items-center justify-center rounded-sm">
-        <SearchBar
-        searchQuery={searchQuery} setSearchQuery={setSearchQuery} />
+          <input type="search" name="search" label="Search" placeholder="Search" onChange={event => handleSearch(event.target.value)} />
         </div>
       </div>
 
