@@ -9,15 +9,15 @@ import imgSrc from '../assets/no-data-found.webp';
 const Main = () => {
 
   /* -- Useful states, constants & variables -- */
-  const [data, setData] = useState([])
+  const [data, setData] = useState([]);
   const cache = useRef({});
-  const [filteredData,setFilteredData] = useState([])
-  const [loading,setLoading] = useState(true)
+  const [filteredData,setFilteredData] = useState([]);
+  const [loading,setLoading] = useState(true);
   const [city ,setCity] = useState("BENGALURU");
   const [currentPage, setCurrentPage] = useState(0);
-  const [searchInput, setSearchInput] = useState("");
-  const [category,setCategory] = useState(["ifsc"])
-  const [favorites,setFavorites] = useState([])
+  const [searchQuery, setSearchQuery] = useState("");
+  const [category,setCategory] = useState(["ifsc"]);
+  const [favorites,setFavorites] = useState([]);
   const [suggestions, setSuggestions] = useState("");
   const [PageSize,setPageSize] = useState(10);
   const url = `https://vast-shore-74260.herokuapp.com/banks?city=${city}`;
@@ -75,7 +75,7 @@ banks = window.sessionStorage.getItem(`${city}-banks`);
       setLoading(false)
   }
   else{
-  fetch(data)
+  fetch(url)
     .then(response => {
       return response.json()
     })
@@ -104,11 +104,13 @@ function handleCityChange(event){
 function handleCategoryChange(e){
   setCategory([e.target.value])
 }
+
 // handle search
 const handleSearch = debounce((d) => {
   //e.preventDefault();
   let value = d.toLowerCase();
-  setSearchInput(value);
+  console.log(value);
+  setSearchQuery(value);
   if(value !==''){
     setFilteredData(data.filter(elem => elem[category].toString().toLowerCase().includes(value)))
   }
@@ -156,7 +158,7 @@ useEffect(() => {
         </select>
         <div className="search h-12 mr-4 mt-2 border-2 border-green-700 flex items-center justify-center rounded-sm">
         <SearchBar
-        searchInput={searchInput} setSearchInput={setSearchInput} onChange= {handleSearch}
+        searchQuery={searchQuery} setSearchQuery={setSearchQuery} onChange= {handleSearch}
       />
         </div>
       </div>
